@@ -1,5 +1,14 @@
 <?php
 	require_once './autoload.php';
+	session_start();
+	
+	if (!isset($_SESSION['cart'])) {
+		$cart = new \mbokov\Cart();
+		$_SESSION['cart'] = $cart;
+	}
+	else {
+		$cart = $_SESSION['cart'];
+	}
 
 	$toy1 = new \mbokov\Toy('Кубики',500,0.2);
 	$toy1->setAges(0,5);
@@ -34,14 +43,16 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Катадог товаров</title>
+    <title>Каталог товаров</title>
 </head>
 <body>
+<a href="./mycart.php">Корзина</a><br>
 
 <h2>Игрушки</h2>
 <?php 
 	$toy1->printProductGeneral();
 	$toy1->printAges();
+
 	$toy2->printProductGeneral();
 	$toy2->printAges();
 ?>
