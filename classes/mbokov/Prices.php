@@ -1,4 +1,6 @@
 <?php
+namespace mbokov;
+
 interface Prices
 {	
 	public function setPrice($price);
