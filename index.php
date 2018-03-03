@@ -1,9 +1,9 @@
 <?php
-	require_once './products.php';
+	require_once './autoload.php';
 
-	$toy1 = new Toy('Кубики',500,0.2);
+	$toy1 = new \mbokov\Toy('Кубики',500,0.2);
 	$toy1->setAges(0,5);
-	$toy2 = new Toy('Кукла',2500,0.5);
+	/*$toy2 = new Toy('Кукла',2500,0.5);
 	$toy2->setAges(2,7);
 	$drink1 = new Drink('CocaCola',50,0.05);
 	$drink1->setVolume(0.33);
@@ -26,7 +26,7 @@
 	$vege1 = new Vege('Картофель',500,20);
 	$vege2 = new Vege('Капуста',100,4);
 	$vege3 = new Vege('Морковь',300,5);
-	$vege4 = new Vege('Салат',200,0.5);
+	$vege4 = new Vege('Салат',200,0.5);*/
 
 ?>
 
@@ -41,7 +41,7 @@
 <h2>Игрушки</h2>
 <?php 
 	$toy1->printProductGeneral();
-	$toy1->printAges();
+	/*$toy1->printAges();
 	$toy2->printProductGeneral();
 	$toy2->printAges();
 ?>
@@ -77,7 +77,7 @@
 	$vege1->printProductGeneral();
 	$vege2->printProductGeneral();
 	$vege3->printProductGeneral();
-	$vege4->printProductGeneral();
+	$vege4->printProductGeneral();*/
 ?>
 
 </body>
