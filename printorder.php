@@ -10,6 +10,7 @@
 		$cart = $_SESSION['cart'];
 	}
 
+	$order = new \mbokov\Order($cart);
 ?>
 
 <!DOCTYPE html>
@@ -17,14 +18,12 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="style.css">
-    <title>Корзина</title>
+    <title>Ваш заказ</title>
 </head>
 <body>
-<a href="./index.php">Каталог</a><br>
-<a href="./clearcart.php">Очистить корзину</a><br>
 
 <?php
-	$cart->printCart();
+	$order->printOrder();
 ?>
 
 </body>

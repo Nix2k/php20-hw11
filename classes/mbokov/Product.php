@@ -10,12 +10,14 @@ abstract class Product implements Prices
 	protected $discount = 10;
 	protected $weight;
 	protected $shipping;
+	protected $objectName;
 
-	public function __construct($name, $price, $weight)
+	public function __construct($name, $price, $weight, $oN)
 	{
 		$this->name = $name;
 		$this->price = $price;
 		$this->weight = $weight;
+		$this->objectName = $oN;
 	}
 
 	public function setPrice($price)
@@ -66,6 +68,11 @@ abstract class Product implements Prices
 		return $this->weight;
 	}
 
+	public function getObjectName()
+	{
+		return $this->objectName;
+	}
+
 	public function printPrice()
 	{
 		echo '<p>Цена: '.$this->getPrice().' руб.</p>';
@@ -79,8 +86,22 @@ abstract class Product implements Prices
 	public function printProductGeneral()
 	{
 		echo "<h3>$this->name</h3>";
+		echo '<form action="addtocart.php" method="POST">';
+		echo '<input type="hidden" name="product" value="'.$this->objectName.'">';
+		echo '<input type="submit" name="submit" value="Add to cart">';
+		echo '</form>';
 		$this->printPrice();
 		$this->printShipping();
-	}	
+	}
+
+	public function printForCart()
+	{
+		echo "<tr><td>$this->name</td><td>".$this->getPrice()."руб.</td><td>".$this->getShipping()."руб.</td><td><a href='delfromcart.php?product=".$this->objectName."'>Удалить</a></td></tr>";
+	}
+
+	public function printForOrder()
+	{
+		echo "<tr><td>$this->name</td><td>".$this->getPrice()."руб.</td><td>".$this->getShipping()."руб.</td></tr>";
+	}		
 }
 ?>
